@@ -1,0 +1,43 @@
+.Conteudo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8em;
+  height: 100%;
+}
+
+.form-logout {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 24em;
+  border-radius: 0.5em;
+  height: 50%;
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.3);
+}
+.content-button-del-back {
+  margin: 1em 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.content-button-del-back button {
+  padding: .8em 1em;
+  font-size: 1.2em;
+  border-radius: 0.5em;
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+  color: #fff;
+  transition: all .3s ease-in
+}
+.content-button-del-back button:hover{
+    opacity: 70%;
+}
+.content-button-del-back #sair{
+    background-color: #f00;
+}
+.content-button-del-back #voltar{
+    background-color: rgb(5, 160, 29);
+}

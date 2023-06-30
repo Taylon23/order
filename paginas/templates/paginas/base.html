@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Links font Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- Icons FontAwesome -->
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+    <!-- Link css -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <!-- Links extras -->
+    {% block links_extras %}
+    {% endblock %}
+</head>
+
+<body>
+    <header>
+        <nav class="NavBar">
+            <div class="content-logo">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'img/logo-order.png' %}" alt="">
+                </a>
+                <a href="{% url 'account_logout' %}" id="logout">Encerra sessão</a>
+            </div>
+            <div class="content-icon-menu-mobile">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="menu-ul-topo">
+                <a href="{% url 'home' %}">
+                    <li>Home</li>
+                </a>
+                <li>
+                    <div class="content-icon-li">
+                        <p>Tabelas</p><i class="fas fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenu-ul-topo">
+                        <a href="{% url 'tabela-clientes' %}">
+                            <li id="first-li-submenu">Tabela de clientes</li>
+                        </a>
+                        <a href="{% url 'tabela-pedido' %}">
+                            <li id="last-li-submenu">Tabela de pedidos</li>
+                        </a>
+                    </ul>
+                </li>
+                <a href="{% url 'adicionar-cliente' %}">
+                    <li>Adicionar clientes</li>
+                </a>
+                <a href="{% url 'criar-produto' %}">
+                    <li>Criar Produtos</li>
+                </a>
+                <a href="{% url 'account_logout' %}" id="logout-mobile"><li>Encerra sessão</li></a>
+            </ul>
+        </nav>
+    </header>
+
+    {% block conteudo %}
+    <div class="Conteudo">
+
+    </div>
+    {% endblock %}
+    <footer>
+        <ul class="contact_social">
+            <li class="items_social"><i class="fab fa-facebook"></i></li>
+            <li class="items_social"><i class="fab fa-instagram"></i></li>
+            <li class="items_social"><i class="fab fa-discord"></i></li>
+            <li class="items_social"><i class="fab fa-twitter "></i></li>
+            <li class="items_social"><i class="fab fa-linkedin"></i></li>
+        </ul>
+        <p>&copy; Todos os direitos reservados para Order 2023</p>
+        <p>
+            <a href="#" class="link_footer">Bases jurídicas </a>|
+            <a href="#" class="link_footer">Política de privacidade </a>|
+            <a href="#" class="link_footer">Termos de uso do website </a>|
+            <a href="#" class="link_footer">Mapa do site</a>
+        </p>
+    </footer>
+</body>
+
+</html>
+
+<script src="{% static 'js/jquery-3.6.3.min.js' %}"></script>
+<script src="{% static 'js/menu-toggle.js' %}"></script>
+{% block scripts %}
+{% endblock scripts %}

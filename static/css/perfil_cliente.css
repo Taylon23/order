@@ -1,0 +1,97 @@
+.Conteudo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .3em;
+}
+.content-perfil {
+  background: #1c1c1c;
+  color: #fff;
+  width: 35em;
+  padding: .8em .5em;
+  border-radius: 1em;
+  box-shadow: 2px 3px 8px #000;
+}
+.content-icon-gear {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.content-icon-gear ul li ul {
+  display: none;
+}
+.content-icon-gear ul li a {
+  color: #000;
+}
+.content-icon-gear ul li ul a li {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .5em 0;
+  cursor: pointer;
+}
+.content-icon-gear ul li ul li:hover {
+  background: #eee;
+}
+#editar-cliente {
+  border-radius: .5em .5em 0 0;
+}
+#deletar-cliente {
+  border-radius: 0 0 .5em .5em;
+}
+.content-icon-gear ul li:hover ul {
+  display: block;
+  position: absolute;
+  background-color: #fff;
+  color: #000;
+  border-radius: 0.5em;
+  box-shadow: 2px 3px 8px #000;
+  font-size: 1.2em;
+  width: 8em;
+}
+#icon-gear {
+  font-size: 1.2em;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+#icon-gear:hover {
+  color: #999;
+  transform: rotate(50deg);
+}
+#icon-user {
+  font-size: 5em;
+  color: #1a1a1a;
+  background: #fafcfc;
+  padding: 0.2em;
+  border-radius: 100%;
+}
+.content-icon-nome-empresa {
+  display: flex;
+  align-items: center;
+}
+.content-dados-nome {
+  margin-left: 2em;
+}
+.content-dados-nome p {
+  margin: 1em 0;
+}
+.dados-perfil-span {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+.content-dados-adicionais {
+  margin-top: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.content-dados-adicionais .dados-adicionais p {
+  margin-top: 1em;
+}
+
+@media ((min-width: 320px) and (max-width:875px)) {
+  .content-icon-gear ul li:hover ul {
+    right: 0;
+  }
+}

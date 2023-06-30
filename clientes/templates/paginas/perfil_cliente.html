@@ -1,0 +1,63 @@
+{% extends "paginas/base.html" %}
+{% load static %}
+
+
+{% block links_extras %}
+<link rel="stylesheet" href="{% static 'css/perfil_cliente.css' %}">
+{% endblock %}
+
+
+
+{% block conteudo %}
+<div class="Conteudo">
+    <div class="content-perfil">
+        <div class="content-icon-gear">
+            <ul>
+                <li><i class="fas fa-gear" id="icon-gear"></i>
+                    <ul>
+                        <a href="{% url 'atualizar-cliente' perfil.pk %}">
+                            <li id="editar-cliente">Editar cliente</li>
+                        </a>
+                        <a href="{% url 'deletar-cliente' perfil.pk %}">
+                            <li id="deletar-cliente">Deletar cliente</li>
+                        </a>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="content-icon-nome-empresa">
+            <i class="fas fa-user" id="icon-user"></i>
+            <div class="content-dados-nome">
+                <p>Nome: <span class="dados-perfil-span">{{ perfil.razao_social }}</span></p>
+                <p>Fantasia: <span class="dados-perfil-span">{{ perfil.fantasia }}</p>
+            </div>
+        </div>
+        <div class="content-dados-adicionais">
+            <div class="dados-adicionais">
+                {% if perfil.email %}
+                <p>Email: <span class="dados-perfil-span">{{ perfil.email }}</p>
+                {% else %}
+                <p>Email: Não Informado</p>
+                {% endif %}
+                {% if perfil.cpf %}
+                <p>CPF: <span class="dados-perfil-span">{{ perfil.cpf }}</p>
+                {% else %}
+                <p>CPF: Não Informado</p>
+                {% endif %}
+                {% if perfil.cnpj %}
+                <p>CNPJ: <span class="dados-perfil-span">{{ perfil.cnpj }}</p>
+                {% else %}
+                <p>CNPJ: Não Informado</p>
+                {% endif %}
+                <p>Telenone: <span class="dados-perfil-span">{{ perfil.fone }}</p>
+            </div>
+            <div class="dados-adicionais">
+                <p>Cep: <span class="dados-perfil-span">{{ perfil.cep }}</p>
+                <p>Endereço: <span class="dados-perfil-span">{{ perfil.endereco }}</p>
+                <p>Cidade: <span class="dados-perfil-span">{{ perfil.cidade }}</p>
+                <p>Bairro: <span class="dados-perfil-span">{{ perfil.bairro }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

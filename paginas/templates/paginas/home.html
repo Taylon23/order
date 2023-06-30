@@ -1,0 +1,27 @@
+{% extends "paginas/base.html" %}
+{% load static %}
+
+
+{% block links_extras %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+
+
+{% block conteudo %}
+<div class="Conteudo">
+    <div class="content-conteudo">
+        <div class="content-titulo-conteudo">
+            <h1>Bem-vindo ao <span>Order</span></h1>
+        </div>
+        <div class="content-criar-pedido">
+            <div><img src="{% static 'img/logo-central.png' %}" alt="logo-projetor"></div>
+            <a href="">
+                <div class="button-pedido">
+                    <a href="{% url 'criar-pedido' %}">Criar pedido</a> <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

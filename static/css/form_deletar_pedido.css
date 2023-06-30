@@ -1,0 +1,48 @@
+.Conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .form-delete {
+    display: flex;
+    align-items: center;
+    align-items: center;
+    flex-direction: column;
+    width: 42em;
+  }
+  .form-delete h1 {
+    text-align: center;
+    margin-bottom: 3em;
+  }
+  .content-button-del-back {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .content-button-del-back button{
+    width: 100%;
+    font-size: 1.2em;
+    padding: 1em 1.1em;
+    border-radius: 0.8em;
+    border: none;
+    margin: 1em 0;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    color: #fff;
+    margin: 0 1em;
+    text-align: center;
+  }
+  #deletar-cliente{
+      background: #f00;
+  }
+  #deletar-cliente:hover{
+      background-color: #ff4242;
+  }
+  #back-page{
+      background-color: #059727;
+  }
+  #back-page:hover{
+      background-color: #37b655;
+  }
+  

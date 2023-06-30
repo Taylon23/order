@@ -1,0 +1,80 @@
+{% extends "paginas/base.html" %}
+{% load static %}
+
+
+{% block links_extras %}
+<link rel="stylesheet" href="{% static 'css/form_cliente.css' %}">
+{% endblock %}
+
+
+{% block conteudo %}
+<div class="Conteudo">
+    <form action="" method="post" class="form-create">
+        {% csrf_token %}
+        <h1>{{ TituloForm }}</h1>
+        <div class="content-campos">
+            <div class="form-group">
+                <label for="id_razao_social">Razão social:</label>
+                {{ form.razao_social }}
+            </div>
+            <div class="form-group">
+                <label for="id_fantasia">Fantasia:</label>
+                {{ form.fantasia }}
+            </div>
+            <div class="form-group">
+                <label for="id_cpf">CPF:</label>
+                {{ form.cpf }}
+            </div>
+            <div class="form-group">
+                <label for="id_cnpj">CNPJ:</label>
+                {{ form.cnpj }}
+            </div>
+            <div class="form-group">
+                <label for="id_inscricao_estadual">Inscrição estadual:</label>
+                {{ form.inscricao_estadual }}
+            </div>
+            <div class="form-group">
+                <label for="id_fone">Fone:</label>
+                {{ form.fone }}
+            </div>
+            <div class="form-group">
+                <label for="id_email">Email:</label>
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                <label for="id_cep">CEP:</label>
+                {{ form.cep }}
+            </div>
+            <div class="form-group">
+                <label for="id_endereco">Endereço:</label>
+                {{ form.endereco }}
+            </div>
+            <div class="form-group">
+                <label for="id_cidade">Cidade:</label>
+                {{ form.cidade }}
+            </div>
+            <div class="form-group">
+                <label for="id_bairro">Bairro:</label>
+                {{ form.bairro }}
+            </div>
+            <div class="form-group">
+                <label for="id_numero_casa">N°:</label>
+                {{ form.numero_casa }}
+            </div>
+        </div>
+        {% if form.non_field_errors %}
+        <div class="error-form">
+            <p>{{ form.non_field_errors }}</p>
+        </div>
+        {% endif %}
+        <button type="submit">{{ Butao }}</button>
+    </form>
+</div>
+{% endblock %}
+
+
+
+{% block scripts %}
+<script src="{% static 'js/jquery.mask.js' %}"></script>
+<script src="{% static 'js/mascaras.js' %}"></script>
+{% endblock %}

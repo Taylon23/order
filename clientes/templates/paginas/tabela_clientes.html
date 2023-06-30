@@ -1,0 +1,47 @@
+{% extends "paginas/base.html" %}
+{% load static %}
+
+{% block links_extras %}
+<link rel="stylesheet" href="{% static 'css/tabelas_order.css' %}">
+{% endblock %}
+
+
+{% block conteudo %}
+<div class="Conteudo">
+    <div class="content-titulo-tabela">
+        <h1>Tabela de Clientes</h1>
+    </div>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Fantasia</th>
+            <th>Cidade</th>
+            <th>Bairro</th>
+            <th>Fone</th>
+        </tr>
+        {% for dados in dados_clientes %}
+        <tr>
+            <td><a href="{% url 'perfil-cliente' dados.pk %}">{{ dados.razao_social }}</a></td>
+            <td>{{ dados.fantasia }}</td>
+            <td>{{ dados.endereco }}</td>
+            <td>{{ dados.bairro }}</td>
+            <td>{{ dados.fone }}</td>
+            <td>
+                <div class="content-trash-pencil">
+                    <a href="{% url 'atualizar-cliente' dados.pk %}"><i class="fas fa-pencil" id="pencil"></i></a>
+                    <a href="{% url 'deletar-cliente' dados.pk %}"><i class="fas fa-trash" id="trash"></i></a>
+                </div>
+            </td>
+            {% empty %}
+            <td>Não Há clientes cadastrados</td>
+        </tr>
+
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+
+{% endblock %}

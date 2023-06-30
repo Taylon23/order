@@ -1,0 +1,45 @@
+{% extends "paginas/base.html" %}
+{% load static %}
+
+{% block links_extras %}
+<link rel="stylesheet" href="{% static 'css/tabelas_order.css' %}">
+{% endblock %}
+
+
+{% block conteudo %}
+<div class="Conteudo">
+    <div class="content-titulo-tabela">
+        <h1>Tabela de pedidos</h1>
+    </div>
+    <table>
+        <tr>
+            <th>ID do Pedido</th>
+            <th>Cliente</th>
+            <th>Valor a pagar</th>
+            <th>Adicionar itens</th>
+        </tr>
+        {% for pedidos in pedidos %}
+        <tr>
+            <td><a href="{% url 'itens_pedido' pedido_id=pedidos.id %}">Pedido {{ pedidos.pk }}</a></td>
+            <td>{{ pedidos.cliente }}</td>
+            <td>{{ pedidos.valor_total }}</td>
+            <td><a href="{% url 'adicionar-produto' %}"><i class="fas fa-plus" id="icon-plus"></i></a></td>
+            <td>
+                <div class="content-trash-pencil">
+                    <a href="{% url 'atualizar-pedido' pedidos.pk %}"><i class="fas fa-pencil" id="pencil"></i></a>
+                    <a href="{% url 'deletar-pedido' pedidos.pk %}"><i class="fas fa-trash" id="trash"></i></a>
+                </div>
+            </td>
+            {% empty %}
+            <td>Não Há pedidos criados</td>
+        </tr>
+
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+
+{% endblock %}
