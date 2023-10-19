@@ -1,0 +1,58 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block head_title %}{% endblock %}</title>
+  <!-- Link Google Fonts -->
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <!-- Link Fontawesomefree -->
+  <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+  <!-- Links extras -->
+  {% block extra_head %}
+  {% endblock %}
+</head>
+
+<body>
+  {% block body %}
+  {% block header %}
+  <header>
+    <nav id="NavBar">
+      <a href="{% url 'home' %}">
+        <img src="{% static 'img/logo-order.png' %}" alt="logo-marca" id="logomarca">
+      </a>
+    </nav>
+  </header>
+  {% endblock %}
+  {% block content %}
+  {% endblock %}
+  {% endblock %}
+
+  {% block footer %}
+  <footer id="Rodape">
+    <p>&copy; Todos os direitos reservados para Order</p>
+    <p>
+      <a href="#" class="link_footer">Política de privacidade </a>|
+      <a href="#" class="link_footer">Termos de uso do website </a>|
+      <a href="#" class="link_footer">Mapa do site</a>
+    </p>
+  </footer>
+  {% endblock %}
+
+  {% block extra_body %}
+  {% endblock %}
+</body>
+
+{% block scripts %}
+
+{% endblock %}
+
+</html>

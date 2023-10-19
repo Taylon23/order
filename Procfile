@@ -1,1 +1,0 @@
-web:gunicorn order.wsgi --log-file -

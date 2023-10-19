@@ -1,0 +1,29 @@
+{% extends "account/base.html" %}
+
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/logout.css' %}">
+{% endblock %}
+
+{% block header %}
+  
+{% endblock %}
+
+{% block content %}
+<div class="Conteudo">
+  <form method="post" class="form-logout">
+    {% csrf_token %}
+    <h1>Deseja encerrar sessão?</h1>
+    <div class="content-button-del-back">
+      <button id="sair">Sair</button>
+      <button type="button" id="voltar" onclick="goback()">Cancelar</button>
+    </div>
+  </form>
+  {% endblock %}
+
+  {% block scripts %}
+  <script src="{% static 'js/gobackpage.js' %}"></script>
+  {% endblock %}
+  {% block footer %}
+  {% endblock %}

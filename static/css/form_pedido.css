@@ -63,3 +63,9 @@ button:hover {
   color: #f00;
   margin: .8em 0;
 }
+
+@media (max-width:450px){
+  .form-create{
+    width: 100%;
+  }
+}

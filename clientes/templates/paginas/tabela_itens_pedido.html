@@ -4,6 +4,7 @@
 {% block links_extras %}
 <link rel="stylesheet" href="{% static 'css/tabelas_order.css' %}">
 {% endblock %}
+{% block head_title %}Tabela de Pedidos{% endblock %}
 
 
 {% block conteudo %}
@@ -16,6 +17,7 @@
       <tr>
         <th>Produto</th>
         <th>Quantidade</th>
+        <th>Valor unitário</th>
         <th>Valor Total</th>
       </tr>
     </thead>
@@ -24,6 +26,7 @@
       <tr>
         <td>{{ item.produto }}</td>
         <td>{{ item.quantidade }}</td>
+        <td>{{item.valor}}</td>
         <td>{{ item.valor_unitario }}</td>
         <td>
           <a href="{% url 'excluir_item_pedido' pedido_id=item.pedido.id item_id=item.id %}">

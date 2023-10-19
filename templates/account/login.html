@@ -1,0 +1,39 @@
+{% extends "account/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load account socialaccount %}
+{% block head_title %}Logar{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/form_auth.css' %}">
+{% endblock %}
+{% block content %}
+<div id="content">
+  <form method="post">
+    {% csrf_token %}
+    <h1>Seja Bem-vindo(a) ao Order</h1>
+    <div class="form-group">
+      <label for="id_login">Usuário:</label>
+      <input type="text" name="{{ form.login.name }}" id="id_login" placeholder="Digite seu nome de usuário" required>
+    </div>
+    <div class="form-group">
+      <label for="id_password">Senha:</label>
+      <input type="password" name="{{ form.password.name }}" id="id_password" placeholder="Digite sua senha" required>
+    </div>
+    <div id="box-remember">
+      <div>
+        <label for="id_password">Lembrar senha</label>
+        <input type="checkbox" name="{{ form.remember.name }}" id="id_remember" placeholder="Digite sua senha">
+      </div>
+    </div>
+    <button type="submit">
+      <p>Logar <i class="fas fa-arrow-right"></i></p>
+    </button>
+    {% if form.non_field_errors %}
+    <div id="error-message">{{ form.non_field_errors }}</div>
+    {% endif %}
+    <div id="singup-link">
+      <p>Não tem uma conta? <a href="{% url 'account_signup' %}">Criar conta</a></p>
+    </div>
+  </form>
+</div>
+{% endblock %}

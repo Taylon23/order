@@ -6,6 +6,7 @@ from django.db.models.signals import post_save, post_delete
 
 
 class DadosClientesModel(models.Model):
+    id = models.BigAutoField(primary_key=True)
     razao_social = models.CharField(max_length=100)
     fantasia = models.CharField(max_length=100)
     cpf = models.CharField(max_length=14, null=True, blank=True)
@@ -37,7 +38,7 @@ class DadosClientesModel(models.Model):
             raise ValidationError('Informe um CPF válido')
         if self.cnpj is not None and (len(self.cnpj) != 18):
             raise ValidationError('Informe um CNPJ válido')
-        if len(self.fone) != 12:
+        if len(self.fone) > 12:
             raise ValidationError('Informe um número de telefone válido')
         if self.cpf is None and self.cnpj is None:
             raise ValidationError(
@@ -47,6 +48,7 @@ class DadosClientesModel(models.Model):
 
 
 class ProdutoModel(models.Model):
+    id = models.BigAutoField(primary_key=True)
     nome = models.CharField(max_length=100)
     user = models.ForeignKey(User, on_delete=models.PROTECT)
 
@@ -55,6 +57,7 @@ class ProdutoModel(models.Model):
 
 
 class PedidoModel(models.Model):
+    id = models.BigAutoField(primary_key=True)
     cliente = models.ForeignKey(DadosClientesModel, on_delete=models.CASCADE)
     valor_total = models.DecimalField(
         max_digits=10, decimal_places=2, default=0)
@@ -84,6 +87,7 @@ class PedidoModel(models.Model):
 
 
 class ItemPedidoModel(models.Model):
+    id = models.BigAutoField(primary_key=True)
     pedido = models.ForeignKey(PedidoModel, on_delete=models.CASCADE)
     produto = models.ForeignKey(ProdutoModel, on_delete=models.CASCADE)
     quantidade = models.PositiveIntegerField()
@@ -112,6 +116,6 @@ def atualizar_valor_total_pedido(sender, instance, **kwargs):
     # Atualiza o valor_total do PedidoModel
     pedido = item_pedido.pedido
     itens_pedido = pedido.itempedidomodel_set.all()
-    total = sum(item.quantidade * item.valor_unitario for item in itens_pedido)
-    pedido.valor_total = total
+    total_pedido = sum(item.valor_unitario for item in itens_pedido)
+    pedido.valor_total = total_pedido
     pedido.save()

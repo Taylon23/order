@@ -25,7 +25,20 @@ SECRET_KEY = '@_4(-lfx7i#8gh(-a@g(#=6kc0#9th%^bjvck!@c-6u!n!yzk%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+SESSION_COOKIE_SECURE = True
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://order.fly.dev'
+]
+
+ALLOWED_HOSTS = [
+    'order.fly.dev'
+]
+
+CORS_ALLOWED_ORIGINS = [
+    'https://order.fly.dev'
+]
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
@@ -59,6 +72,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'order.urls'
@@ -131,10 +145,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT= os.path.join(BASE_DIR, 'static')
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
 
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'account_login'

@@ -1,0 +1,39 @@
+{% extends "account/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load account socialaccount %}
+{% block head_title %}Registre-se{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/form_auth.css' %}">
+{% endblock %}
+{% block content %}
+<div id="content">
+  <form method="post">
+    {% csrf_token %}
+    <h1>Criar Conta</h1>
+    <div class="form-group">
+      <label for="id_username">Usuário:</label>
+      <input type="text" name="{{ form.username.name }}" id="id_username" placeholder="Digite seu nome de usuário"
+        required>
+    <div id="error-message">{{ form.username.errors }}</div>
+    </div>
+    <div class="form-group">
+      <label for="id_password1">Senha:</label>
+      <input type="password" name="{{ form.password1.name }}" id="id_password1" placeholder="Digite sua senha" required>
+      <div id="error-message">{{ form.password1.errors }}</div>
+    
+    </div>
+    <div class="form-group">
+      <label for="id_password2">Senha (novamente):</label>
+      <input type="password" name="{{ form.password2.name }}" id="id_password2" placeholder="Digite sua senha" required>
+      <div id="error-message">{{ form.password2.errors }}</div>
+    </div>
+    <button type="submit">
+      <p>Logar <i class="fas fa-arrow-right"></i></p>
+    </button>
+    <div id="singup-link">
+      <p>Já tem uma conta? <a href="{% url 'account_login' %}">logar</a></p>
+    </div>
+  </form>
+</div>
+{% endblock %}

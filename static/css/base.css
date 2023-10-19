@@ -18,6 +18,10 @@ body {
   padding: 1em;
   height: 10em;
 }
+#logomarca{
+  width: 100%;
+  max-width: 15em;
+}
 .content-logo {
   display: flex;
   align-items: center;
@@ -169,7 +173,8 @@ footer p {
   }
   .submenu-ul-topo {
     right: 0;
-    font-size: 1em;
+    top: 5em;
+    border: solid .6px rgba(0, 0, 0, 0.2);
   }
   .submenu-ul-topo li {
     padding: 0.2em;

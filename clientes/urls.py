@@ -1,15 +1,14 @@
 from django.urls import path
 from . import views
-from allauth.account.views import LoginView, LogoutView, PasswordChangeView
+from allauth.account.views import LoginView, LogoutView, SignupView
 
 urlpatterns = [
     # URL para a página de login
     path('accounts/login/', LoginView.as_view(), name='account_login'),
     # URL para a página de logout
     path('accounts/logout/', LogoutView.as_view(), name='account_logout'),
-    # URL para a página de alteração de senha
-    path('accounts/password/change/', PasswordChangeView.as_view(),
-         name='account_change_password'),
+    # URL para a página de singup
+    path('accounts/singup/', SignupView.as_view(), name='account_singup'),
     # URL para a página de cadastro
     path('add/clientes/', views.CreateClientesView.as_view(),
          name='adicionar-cliente'),

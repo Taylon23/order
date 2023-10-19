@@ -5,6 +5,7 @@
 {% block links_extras %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
+{% block head_title %}Order{% endblock %}
 
 
 
@@ -16,9 +17,9 @@
         </div>
         <div class="content-criar-pedido">
             <div><img src="{% static 'img/logo-central.png' %}" alt="logo-projetor"></div>
-            <a href="">
+            <a href="{% url 'criar-pedido' %}">
                 <div class="button-pedido">
-                    <a href="{% url 'criar-pedido' %}">Criar pedido</a> <i class="fas fa-arrow-right"></i>
+                    Criar pedido<i class="fas fa-arrow-right"></i>
                 </div>
             </a>
         </div>
